@@ -1,21 +1,12 @@
 import { recipes } from './data.js';
+import Recipe from './Recipe.js';
 
 export default function RecipeList() {
   return (
       <div>
       <h1>Recipes</h1>
       {recipes.map((recipe) => (
-	  <div key={recipe.id}>
-	  <h2>{recipe.name}</h2>
-	  <p>{recipe.description}</p>
-	  <ul>
-	  {recipe.ingredients.map((ingredient) => (
-	      <li>
-	      {ingredient}
-	    </li>
-	  ))}
-	</ul>
-	  </div>
+	  <Recipe key={recipe.id} {...recipe} />
       ))}
     </div>
   );
